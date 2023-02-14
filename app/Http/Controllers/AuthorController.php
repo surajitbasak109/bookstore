@@ -43,7 +43,7 @@ class AuthorController extends Controller
 
         return response()->json([
             'message' => 'Author createed',
-            'publisher' => $author
+            'author' => $author
         ]);
     }
 

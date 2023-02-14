@@ -142,7 +142,10 @@ class Book extends Model implements Explored
     protected function imageUrl(): Attribute
     {
         return Attribute::make(
-            get: fn () => strpos($this->image, 'http') === false ? Storage::url($this->image) : $this->image
+            get: function() {
+                if (empty($this->image)) return 'https://picsum.photos/400';
+                return strpos($this->image, 'http') === false ? Storage::url($this->image) : $this->image;
+            }
         );
     }
 
