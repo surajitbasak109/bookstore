@@ -1,0 +1,50 @@
+#bookstore-navbar {
+    .navbar {
+        form {
+            .form-control {
+                background: transparent;
+                border: 1px solid #787878;
+                border-radius: 10px;
+                font-size: 16px;
+                font-style: normal;
+                font-weight: 400;
+                height: 60px;
+                line-height: 20px;
+                overflow: hidden;
+                padding: 0 20px;
+                width: 499px;
+            }
+
+            position: relative;
+            .form-control,
+            .form-control::placeholder {
+                color: #cbcbcb;
+            }
+
+            .btn-parent {
+                align-items: center;
+                display: flex;
+                height: 100%;
+                position: absolute;
+                right: 20px;
+                top: 0;
+
+                .btn {
+                    background: transparent;
+                    border: 0 solid;
+                    box-shadow: none;
+                    cursor: pointer;
+                    padding: 10px;
+                }
+            }
+        }
+
+        .form-inline {
+            @media (min-width: 576px) {
+                display: inline-block;
+                vertical-align: middle;
+                width: auto;
+            }
+        }
+    }
+}

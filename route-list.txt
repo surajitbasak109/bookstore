@@ -1,0 +1,145 @@
+
+  GET|HEAD  / ................................................................................................. guest.default › GuestController@index
+            ⇂ web
+            ⇂ App\Http\Middleware\RedirectIfAuthenticated
+  GET|HEAD  _debugbar/assets/javascript ................................................. debugbar.assets.js › Barryvdh\Debugbar › AssetController@js
+            ⇂ Barryvdh\Debugbar\Middleware\DebugbarEnabled
+            ⇂ Closure
+  GET|HEAD  _debugbar/assets/stylesheets .............................................. debugbar.assets.css › Barryvdh\Debugbar › AssetController@css
+            ⇂ Barryvdh\Debugbar\Middleware\DebugbarEnabled
+            ⇂ Closure
+  DELETE    _debugbar/cache/{key}/{tags?} ........................................ debugbar.cache.delete › Barryvdh\Debugbar › CacheController@delete
+            ⇂ Barryvdh\Debugbar\Middleware\DebugbarEnabled
+            ⇂ Closure
+  GET|HEAD  _debugbar/clockwork/{id} ....................................... debugbar.clockwork › Barryvdh\Debugbar › OpenHandlerController@clockwork
+            ⇂ Barryvdh\Debugbar\Middleware\DebugbarEnabled
+            ⇂ Closure
+  GET|HEAD  _debugbar/open .................................................. debugbar.openhandler › Barryvdh\Debugbar › OpenHandlerController@handle
+            ⇂ Barryvdh\Debugbar\Middleware\DebugbarEnabled
+            ⇂ Closure
+  POST      _ignition/execute-solution ................................ ignition.executeSolution › Spatie\LaravelIgnition › ExecuteSolutionController
+            ⇂ Spatie\LaravelIgnition\Http\Middleware\RunnableSolutionsEnabled
+  GET|HEAD  _ignition/health-check ............................................ ignition.healthCheck › Spatie\LaravelIgnition › HealthCheckController
+            ⇂ Spatie\LaravelIgnition\Http\Middleware\RunnableSolutionsEnabled
+  POST      _ignition/update-config ......................................... ignition.updateConfig › Spatie\LaravelIgnition › UpdateConfigController
+            ⇂ Spatie\LaravelIgnition\Http\Middleware\RunnableSolutionsEnabled
+  GET|HEAD  api/user ................................................................................................................................ 
+            ⇂ api
+            ⇂ App\Http\Middleware\Authenticate:sanctum
+  GET|HEAD  authors ........................................................................................ authors.default › AuthorController@index
+            ⇂ web
+            ⇂ App\Http\Middleware\Authenticate
+  POST      authors .......................................................................................... authors.store › AuthorController@store
+            ⇂ web
+            ⇂ App\Http\Middleware\Authenticate
+  GET|HEAD  authors/datatables ..................................................................... authors.datatables › AuthorController@datatables
+            ⇂ web
+            ⇂ App\Http\Middleware\Authenticate
+  GET|HEAD  authors/{id} ....................................................................................... authors.show › AuthorController@show
+            ⇂ web
+            ⇂ App\Http\Middleware\Authenticate
+  PUT       authors/{id} ................................................................................... authors.update › AuthorController@update
+            ⇂ web
+            ⇂ App\Http\Middleware\Authenticate
+  DELETE    authors/{id} .................................................................................. authors.delete › AuthorController@destroy
+            ⇂ web
+            ⇂ App\Http\Middleware\Authenticate
+  GET|HEAD  book-detail/{book} ....................................................................... guest.book-detail › GuestController@bookDetail
+            ⇂ web
+            ⇂ App\Http\Middleware\RedirectIfAuthenticated
+  GET|HEAD  books .............................................................................................. books.default › BookController@index
+            ⇂ web
+            ⇂ App\Http\Middleware\Authenticate
+  POST      books ................................................................................................ books.store › BookController@store
+            ⇂ web
+            ⇂ App\Http\Middleware\Authenticate
+  GET|HEAD  books/create ....................................................................................... books.create › BookController@create
+            ⇂ web
+            ⇂ App\Http\Middleware\Authenticate
+  GET|HEAD  books/datatables ........................................................................... books.datatables › BookController@datatables
+            ⇂ web
+            ⇂ App\Http\Middleware\Authenticate
+  GET|HEAD  books/edit/{book} ...................................................................................... books.edit › BookController@edit
+            ⇂ web
+            ⇂ App\Http\Middleware\Authenticate
+  POST      books/{book} ....................................................................................... books.update › BookController@update
+            ⇂ web
+            ⇂ App\Http\Middleware\Authenticate
+  DELETE    books/{book} ...................................................................................... books.delete › BookController@destroy
+            ⇂ web
+            ⇂ App\Http\Middleware\Authenticate
+  GET|HEAD  genres ........................................................................................... genres.default › GenreController@index
+            ⇂ web
+            ⇂ App\Http\Middleware\Authenticate
+  POST      genres ............................................................................................. genres.store › GenreController@store
+            ⇂ web
+            ⇂ App\Http\Middleware\Authenticate
+  GET|HEAD  genres/datatables ........................................................................ genres.datatables › GenreController@datatables
+            ⇂ web
+            ⇂ App\Http\Middleware\Authenticate
+  GET|HEAD  genres/{id} .......................................................................................... genres.show › GenreController@show
+            ⇂ web
+            ⇂ App\Http\Middleware\Authenticate
+  PUT       genres/{id} ...................................................................................... genres.update › GenreController@update
+            ⇂ web
+            ⇂ App\Http\Middleware\Authenticate
+  DELETE    genres/{id} ..................................................................................... genres.delete › GenreController@destroy
+            ⇂ web
+            ⇂ App\Http\Middleware\Authenticate
+  GET|HEAD  home ........................................................................................................ home › HomeController@index
+            ⇂ web
+            ⇂ App\Http\Middleware\Authenticate
+  GET|HEAD  login ........................................................................................ login › Auth\LoginController@showLoginForm
+            ⇂ web
+            ⇂ App\Http\Middleware\RedirectIfAuthenticated
+  POST      login ........................................................................................................ Auth\LoginController@login
+            ⇂ web
+            ⇂ App\Http\Middleware\RedirectIfAuthenticated
+  POST      logout ............................................................................................. logout › Auth\LoginController@logout
+            ⇂ web
+  GET|HEAD  password/confirm ...................................................... password.confirm › Auth\ConfirmPasswordController@showConfirmForm
+            ⇂ web
+            ⇂ App\Http\Middleware\Authenticate
+  POST      password/confirm ................................................................................. Auth\ConfirmPasswordController@confirm
+            ⇂ web
+            ⇂ App\Http\Middleware\Authenticate
+  POST      password/email ........................................................ password.email › Auth\ForgotPasswordController@sendResetLinkEmail
+            ⇂ web
+  GET|HEAD  password/reset ..................................................... password.request › Auth\ForgotPasswordController@showLinkRequestForm
+            ⇂ web
+  POST      password/reset ..................................................................... password.update › Auth\ResetPasswordController@reset
+            ⇂ web
+  GET|HEAD  password/reset/{token} ...................................................... password.reset › Auth\ResetPasswordController@showResetForm
+            ⇂ web
+  GET|HEAD  publishers ............................................................................... publishers.default › PublisherController@index
+            ⇂ web
+            ⇂ App\Http\Middleware\Authenticate
+  POST      publishers ................................................................................. publishers.store › PublisherController@store
+            ⇂ web
+            ⇂ App\Http\Middleware\Authenticate
+  GET|HEAD  publishers/datatables ............................................................ publishers.datatables › PublisherController@datatables
+            ⇂ web
+            ⇂ App\Http\Middleware\Authenticate
+  GET|HEAD  publishers/{id} .............................................................................. publishers.show › PublisherController@show
+            ⇂ web
+            ⇂ App\Http\Middleware\Authenticate
+  PUT       publishers/{id} .......................................................................... publishers.update › PublisherController@update
+            ⇂ web
+            ⇂ App\Http\Middleware\Authenticate
+  DELETE    publishers/{id} ......................................................................... publishers.delete › PublisherController@destroy
+            ⇂ web
+            ⇂ App\Http\Middleware\Authenticate
+  GET|HEAD  sanctum/csrf-cookie ................................................... sanctum.csrf-cookie › Laravel\Sanctum › CsrfCookieController@show
+            ⇂ web
+  GET|HEAD  search ............................................................................................ guest.search › GuestController@search
+            ⇂ web
+            ⇂ App\Http\Middleware\RedirectIfAuthenticated
+  GET|HEAD  search-ajax .............................................................................. guest.search-ajax › GuestController@searchAjax
+            ⇂ web
+            ⇂ App\Http\Middleware\RedirectIfAuthenticated
+  GET|HEAD  search-title ........................................................................... guest.search-title › GuestController@searchTitle
+            ⇂ web
+            ⇂ App\Http\Middleware\RedirectIfAuthenticated
+
+                                                                                                                                  Showing [50] routes
+
