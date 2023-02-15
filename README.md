@@ -200,3 +200,7 @@ php artisan scout:import "App\Models\Book"
 ### Sample Admin Login Credential
 - __Email__: admin@bookstore.test
 - __Passwword__: password
+
+## Demo
+
+Site application is hosted on heroku. Please click on [this link](https://bookstore-laravel-9.herokuapp.com/) to get started.

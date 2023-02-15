@@ -1,0 +1,23 @@
+{
+  "public/images/loading.gif": {
+    "file": "assets/loading-8820c294.gif",
+    "src": "public/images/loading.gif"
+  },
+  "resources/js/app.css": {
+    "file": "assets/app-d3974eec.css",
+    "src": "resources/js/app.css"
+  },
+  "resources/js/app.js": {
+    "css": [
+      "assets/app-d3974eec.css"
+    ],
+    "file": "assets/app-9c952e1c.js",
+    "isEntry": true,
+    "src": "resources/js/app.js"
+  },
+  "resources/sass/app.scss": {
+    "file": "assets/app-9be8ef7e.css",
+    "isEntry": true,
+    "src": "resources/sass/app.scss"
+  }
+}
