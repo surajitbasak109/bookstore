@@ -178,6 +178,25 @@ npm run dev
 8. Open `localhost:8000` in your browser to load the application
 
 
+## Using Cloud Elastic Search
+1. Visit https://www.elastic.co/ and Click on the `Try free` link
+2. Register using your Google, Facebook or email provider anything you would like
+3. Get the API key, username and password
+4. open your .env file and update following credentials
+
+```env
+SCOUT_DRIVER=
+ELASTIC_CLOUD_ID=
+ELASTIC_USERNAME=
+ELASTIC_PASSWORD=
+```
+
+5. Run following command in your terminal
+
+```zsh
+php artisan scout:import "App\Models\Book"
+```
+
 ### Sample Admin Login Credential
 - __Email__: admin@bookstore.test
 - __Passwword__: password

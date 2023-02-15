@@ -9,12 +9,13 @@ return [
      * https://www.elastic.co/guide/en/elasticsearch/client/php-api/current/configuration.html
      */
     'connection' => [
-        'host' => 'localhost',
-        'port' => '9200',
-        'scheme' => 'http',
+        // 'host' => 'localhost',
+        // 'port' => '9200',
+        // 'scheme' => 'http',
+        'elasticCloudId' => env('ELASTIC_CLOUD_ID', null),
         'auth' => [
-            'username' => env('ELASTICSEARCH_USERNAME', 'elastic'),
-            'password' => env('ELASTICSEARCH_PASSWORD')
+            'username' => env('ELASTIC_USERNAME', 'elastic'),
+            'password' => env('ELASTIC_PASSWORD')
         ],
     ],
 
