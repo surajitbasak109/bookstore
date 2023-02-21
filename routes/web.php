@@ -29,6 +29,7 @@ Route::controller(GuestController::class)->middleware('guest')
         Route::get('/search-ajax', 'searchAjax')->name('search-ajax');
         Route::get('/search-title', 'searchTitle')->name('search-title');
         Route::get('/book-detail/{book}', 'bookDetail')->name('book-detail');
+        Route::get('/filter-data', 'ajaxGetFilterData')->name('filter-data');
     });
 
 Auth::routes([

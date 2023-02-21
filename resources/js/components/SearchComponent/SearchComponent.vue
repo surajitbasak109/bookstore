@@ -38,7 +38,7 @@
                             @change="navigate(prevUsedSearchUrl || null)"
                         >
                             <option :value="null">Select genere</option>
-                            <option v-for="genere in genres" :key="genere.id" :value="genere.id">
+                            <option v-for="genere in filterData.genres" :key="genere.id" :value="genere.id">
                                 {{ genere.name }}
                             </option>
                         </select>
@@ -58,7 +58,7 @@
                             @change="navigate(prevUsedSearchUrl || null)"
                         >
                             <option :value="null">Select author</option>
-                            <option v-for="author in authors" :key="author.id" :value="author.id">
+                            <option v-for="author in filterData.authors" :key="author.id" :value="author.id">
                                 {{ author.name }}
                             </option>
                         </select>
@@ -79,7 +79,7 @@
                         >
                             <option :value="null">Select publisher</option>
                             <option
-                                v-for="publisher in publishers"
+                                v-for="publisher in filterData.publishers"
                                 :key="publisher.id"
                                 :value="publisher.id"
                             >
@@ -102,7 +102,7 @@
                             @change="navigate(prevUsedSearchUrl || null)"
                         >
                             <option :value="null">Select isbn</option>
-                            <option v-for="isbn in isbns" :key="isbn.isbn" :value="isbn.isbn">
+                            <option v-for="isbn in filterData.isbns" :key="isbn.isbn" :value="isbn.isbn">
                                 {{ isbn.isbn }}
                             </option>
                         </select>
@@ -156,10 +156,10 @@
                 type: String,
                 required: true,
             },
-            authors: { type: Array },
-            genres: { type: Array },
-            publishers: { type: Array },
-            isbns: { type: Array },
+            filterDataUrl: {
+                type: String,
+                required: true,
+            },
         },
         data() {
             return {
@@ -173,6 +173,12 @@
                     genre: null,
                     publisher: null,
                     isbn: null,
+                },
+                filterData: {
+                    authors: [],
+                    genres: [],
+                    publishers: [],
+                    isbns: [],
                 },
             };
         },
@@ -263,6 +269,18 @@
                     this.navigate(this.searchUrl);
                 }
             },
+            fetchDataForFilter() {
+                this.apiInProgress = true;
+                axios.get(this.filterDataUrl).then(({ data }) => {
+                    console.log(data);
+                    this.filterData = data;
+                })
+                .catch(err => {
+                    console.log(error);
+                }).finally(() => {
+                    this.apiInProgress = false;
+                });
+            },
         },
         computed: {
             filtersChanged() {
@@ -278,6 +296,7 @@
         },
         mounted() {
             this.navigate(`${this.searchUrl}${this.query ? `?query=${this.query}` : ''}`);
+            this.fetchDataForFilter();
         },
     };
 </script>

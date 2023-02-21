@@ -4,14 +4,14 @@
     "src": "public/images/loading.gif"
   },
   "resources/js/app.css": {
-    "file": "assets/app-d3974eec.css",
+    "file": "assets/app-4d4d187b.css",
     "src": "resources/js/app.css"
   },
   "resources/js/app.js": {
     "css": [
-      "assets/app-d3974eec.css"
+      "assets/app-4d4d187b.css"
     ],
-    "file": "assets/app-9c952e1c.js",
+    "file": "assets/app-23bc5a74.js",
     "isEntry": true,
     "src": "resources/js/app.js"
   },

@@ -25,19 +25,10 @@ class GuestController extends Controller
         $showSearchForm = true;
         $showFooter = true;
 
-        $authors = Author::distinct()->select(['name', 'id'])->get();
-        $genres = Genre::distinct()->select(['name', 'id'])->get();
-        $publishers = Publisher::distinct()->select(['name', 'id'])->get();
-        $isbns = Book::select('isbn')->without(['author', 'genre', 'publisher'])->distinct()->get();
-
         return view('search', compact(
             'query',
             'showSearchForm',
             'showFooter',
-            'authors',
-            'genres',
-            'publishers',
-            'isbns',
         ));
     }
 
@@ -84,6 +75,18 @@ class GuestController extends Controller
         $suggestions = $query->get();
 
         return response()->json($suggestions);
+    }
+
+    public function ajaxGetFilterData()
+    {
+        $data = [
+            'authors' => Author::distinct()->select(['name', 'id'])->get(),
+            'genres' => Genre::distinct()->select(['name', 'id'])->get(),
+            'publishers' => Publisher::distinct()->select(['name', 'id'])->get(),
+            'isbns' => Book::select('isbn')->without(['author', 'genre', 'publisher'])->distinct()->get(),
+        ];
+
+        return response()->json($data);
     }
 
     public function bookDetail(Book $book, Request $request)
