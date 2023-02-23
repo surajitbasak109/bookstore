@@ -109,7 +109,7 @@ class BookController extends Controller
      * @param  \App\Models\Book  $book
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Book $book)
+    public function update(BookRequest $request, Book $book)
     {
         $book->title = $request->input('title');
         $book->isbn = $request->input('isbn');

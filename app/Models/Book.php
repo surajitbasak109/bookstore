@@ -30,7 +30,11 @@ class Book extends Model implements Explored
     {
         return [
             'id' => 'keyword',
-            'title' => 'text',
+            'title' => 'text','published' => 'date',
+            'created_at' => 'date',
+            'author_name' => 'text',
+            'genre_name' => 'text',
+            'publisher_name' => 'text',
         ];
     }
 
@@ -39,6 +43,10 @@ class Book extends Model implements Explored
         return [
             'id' => $this->id,
             'title' => $this->title,
+            'author_id' => $this->author_id,
+            'genre_id' => $this->genre_id,
+            'publisher_id' => $this->publisher_id,
+            'isbn' => $this->isbn,
         ];
     }
 
